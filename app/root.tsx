@@ -10,11 +10,16 @@ import type { MetaFunction } from "remix";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
 
 import styles from "./tailwind.css";
+import globalStyles from './styles.css'
+
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 
 export function links() {
-  return [{ rel: "stylesheet", href: styles }];
+  return [
+    { rel: "stylesheet", href: styles },
+    { rel: "stylesheet", href: globalStyles }
+  ];
 }
 
 export const meta: MetaFunction = () => {

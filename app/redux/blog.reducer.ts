@@ -6,7 +6,8 @@ interface Action {
 }
 
 var initialState = {
-  title: "Posts"
+  title: "Posts",
+  backButton: false
 }
 
 export const authReducer = (state = initialState, action: Action) => {
@@ -14,7 +15,10 @@ export const authReducer = (state = initialState, action: Action) => {
   switch (action.type) {
     case types.changeTitle:
       return { ...state, title: action.payload }
-
+    case types.backButton:
+      return { ...state, backButton: true }
+    case types.unbackButton:
+      return { ...state, backButton: false }
     default:
       return state;
   }
