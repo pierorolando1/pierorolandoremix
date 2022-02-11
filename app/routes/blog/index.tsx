@@ -13,7 +13,8 @@ export const loader = async () => {
 
   const root = process.cwd()
 
-  log(root)
+  log(await fs.readdir(root))
+
   let files: string[] = await fs.readdir(root + "/posts")
   //fs.readdirSync()
 
