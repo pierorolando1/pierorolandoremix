@@ -1,4 +1,5 @@
 import fs from 'fs'
+import fsa from '../routes/blog/fs.server'
 import path from 'path'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -10,6 +11,8 @@ const root = process.cwd()
 
 export const getFileBySlug = async (slug: string) => {
 
+
+  log(await fsa.readdir(root))
   log(root)
 
   const file = path.join(root, "posts", `${slug}.mdx`)
