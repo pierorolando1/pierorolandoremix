@@ -12,7 +12,7 @@ const root = process.cwd()
 export const getFileBySlug = async (slug: string) => {
 
 
-  log(await fsa.readdir(root))
+  log(__dirname)
   log(root)
 
   const file = path.join(root, "posts", `${slug}.mdx`)
