@@ -21,6 +21,7 @@
     "next-mdx-remote": "^3.0.8",
     "nprogress": "^0.2.0",
     "react": "^17.0.2",
+    "react-device-detect": "^2.1.2",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.6",
     "react-truncate": "^2.4.0",

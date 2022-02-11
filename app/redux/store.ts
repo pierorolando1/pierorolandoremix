@@ -1,7 +1,8 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 
-import { authReducer } from "./blog.reducer"
+import { blogReducer } from "./blog.reducer"
+import { modalReducer } from './modal.reducer';
 
 var composeEnhancers = compose;
 
@@ -11,7 +12,8 @@ if (typeof window !== "undefined") {
 }
 
 const reducers = combineReducers({
-  blog: authReducer,
+  blog: blogReducer,
+  modal: modalReducer
 });
 
 

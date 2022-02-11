@@ -10,7 +10,7 @@ var initialState = {
   backButton: false
 }
 
-export const authReducer = (state = initialState, action: Action) => {
+export const blogReducer = (state = initialState, action: Action) => {
 
   switch (action.type) {
     case types.changeTitle:
