@@ -9,7 +9,10 @@ const root = process.cwd()
 
 export const getFileBySlug = async (slug: string) => {
 
-  const mdxSource = fs.readFileSync(path.join(root, "posts", `${slug}.mdx`), "utf8");
+  const file = path.join(root, "posts", `${slug}.mdx`)
+  const mdxSource = fs.readFileSync(file, "utf8");
+
+  const lastModified = fs.statSync(file).mtime
 
   const { data, content } = await matter(mdxSource);
 
@@ -22,6 +25,7 @@ export const getFileBySlug = async (slug: string) => {
 
   return {
     source,
+    lastModified,
     frontmatter: {
       slug: slug || null,
       ...data,

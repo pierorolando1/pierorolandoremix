@@ -158,3 +158,28 @@ pre[class*="language-"] {
 .token.italic {
 	font-style: italic;
 }
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 11px;
+}
+
+/* Track */
+::-webkit-scrollbar-track { 
+  border-radius: 1px;
+  background: #ffffff09;
+  padding: 5px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff40;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff20; 
+}

@@ -4,7 +4,8 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration
+  ScrollRestoration,
+  useTransition
 } from "remix";
 import type { MetaFunction } from "remix";
 import { createTheme, NextUIProvider } from "@nextui-org/react";
@@ -14,11 +15,16 @@ import globalStyles from './styles.css'
 
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import { useEffect } from "react";
+
+import Nprogress from 'nprogress';
+import nprogressStyles from 'nprogress/nprogress.css';
 
 export function links() {
   return [
     { rel: "stylesheet", href: styles },
-    { rel: "stylesheet", href: globalStyles }
+    { rel: "stylesheet", href: globalStyles },
+    { rel: "stylesheet", href: nprogressStyles }
   ];
 }
 
@@ -27,6 +33,16 @@ export const meta: MetaFunction = () => {
 };
 
 export default function App() {
+
+  const transition = useTransition();
+
+  useEffect(() => {
+    if (transition.state === 'loading' || transition.state === 'submitting') {
+      Nprogress.start();
+    } else {
+      Nprogress.done();
+    }
+  }, [transition.state]);
 
   const darkTheme = createTheme({
     type: "dark"
