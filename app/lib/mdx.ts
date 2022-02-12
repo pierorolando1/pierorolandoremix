@@ -7,6 +7,8 @@ import { serialize } from 'next-mdx-remote/serialize'
 import mdxPrism from 'mdx-prism'
 import { log } from '~/utils'
 
+import axios from 'axios'
+
 const root = process.cwd()
 
 export const getFileBySlug = async (slug: string) => {
