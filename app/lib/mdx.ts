@@ -11,11 +11,7 @@ const root = process.cwd()
 
 export const getFileBySlug = async (slug: string) => {
 
-
-  log(__dirname)
-  log(root)
-
-  const file = path.join(root, "posts", `${slug}.mdx`)
+  const file = path.resolve(__dirname, "../../public/posts/", `${slug}.mdx`)
   const mdxSource = fs.readFileSync(file, "utf8");
 
   const lastModified = fs.statSync(file).mtime

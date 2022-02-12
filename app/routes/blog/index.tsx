@@ -2,6 +2,7 @@ import { CardItem } from "~/components/carditem"
 
 import { useLoaderData } from "remix"
 
+import path from './path.server'
 import fs from './fs.server'
 import { getAllPosts, log } from "~/utils"
 import { useEffect } from "react"
@@ -11,11 +12,11 @@ import { Post } from "~/interfaces/post"
 
 export const loader = async () => {
 
-  const root = process.cwd()
+  const root = path.resolve(__dirname, '../../../public/posts')
 
   log(__dirname)
 
-  let files: string[] = await fs.readdir(root + "/posts")
+  let files: string[] = await fs.readdir(root)
   //fs.readdirSync()
 
   files = files.map(f => removeExtension(f))
