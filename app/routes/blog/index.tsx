@@ -12,7 +12,7 @@ import { Post } from "~/interfaces/post"
 
 export const loader = async () => {
 
-  log(await fs.readdir(path.resolve(__dirname, '../../')))
+  log(await fs.readdir(path.resolve(__dirname, '../../api/_build')))
 
   const root = path.resolve(__dirname, '../../public/posts')
 
