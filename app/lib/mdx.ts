@@ -1,29 +1,18 @@
-import fs from 'fs'
-import path from 'path'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
 //@ts-ignore
 import mdxPrism from 'mdx-prism'
-import { log } from '~/utils'
 
-import { collection, getDocs } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
 import { db } from './firebase.config'
 
 
 export const getFileBySlug = async (slug: string) => {
 
-  const querySnapshot = await getDocs(collection(db, 'posts_remix'))
-  const posts = querySnapshot.docs.map(doc => doc.data())
+  const docRef = doc(db, "posts_remix", slug);
+  const docSnap = await getDoc(docRef);
 
-  log(posts)
-
-  //const file = path.join(root, 'content', slug + '.mdx')
-  const file = path.resolve(__dirname, "../../public/posts/", `${slug}.mdx`)
-  const mdxSource = fs.readFileSync(file, "utf8");
-
-  const lastModified = fs.statSync(file).mtime
-
-  const { data, content } = await matter(mdxSource);
+  const { data, content } = await matter(docSnap.data()!.content)
 
   const source = await serialize(content, {
     mdxOptions: {
@@ -34,7 +23,6 @@ export const getFileBySlug = async (slug: string) => {
 
   return {
     source,
-    lastModified,
     frontmatter: {
       slug: slug || null,
       ...data,

@@ -6,7 +6,12 @@ interface Action {
 }
 
 var initialState = {
-  content: ""
+  content: `---
+meta:
+  title: Title
+  description: Description
+---`
+
 }
 
 export const adminReducer = (state = initialState, action: Action) => {

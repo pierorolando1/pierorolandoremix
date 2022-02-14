@@ -1,24 +1,20 @@
+import { collection, getDocs } from "firebase/firestore"
 import { Post } from "./interfaces/post"
-import { getFileBySlug } from "./lib/mdx"
+import { db } from "./lib/firebase.config"
 
 export const log = console.log
 
-export const getAllPosts = async (files: string[]): Promise<Post[]> => {
+export const getAllPosts = async (): Promise<Post[]> => {
 
   let posts: Post[] = []
-
-  for (const file in files) {
-    const { frontmatter, lastModified }: any = await getFileBySlug(files[file])
-
-    log(lastModified)
-
+  const postsSnap = await getDocs(collection(db, "posts_remix"))
+  postsSnap.forEach(doc => {
     posts.push({
-      slug: frontmatter.slug,
-      title: frontmatter.meta.title ?? "",
-      description: frontmatter.meta.description ?? ""
+      id: doc.id,
+      title: doc.data().title,
+      description: doc.data().description
     })
-  }
-
+  })
   return posts
 }
 
