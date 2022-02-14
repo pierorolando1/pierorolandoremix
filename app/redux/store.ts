@@ -1,5 +1,6 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import { adminReducer } from './admin.duck';
 
 import { blogReducer } from "./blog.reducer"
 import { modalReducer } from './modal.reducer';
@@ -13,7 +14,8 @@ if (typeof window !== "undefined") {
 
 const reducers = combineReducers({
   blog: blogReducer,
-  modal: modalReducer
+  modal: modalReducer,
+  admin: adminReducer
 });
 
 

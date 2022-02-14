@@ -62,12 +62,12 @@ export default function Blog() {
         <Modal
           closeButton
           blur
-          className="pb-5"
+          className="pb-5 pt-5"
           open={modalState.open}
           onClose={() => dispatch(closeModal())}
         >
           <Modal.Header>
-            <Input autoFocus width="100%" placeholder="Search..." />
+            <Input autoFocus width="100%" labelPlaceholder="Search..." />
           </Modal.Header>
         </Modal>
         <Outlet />

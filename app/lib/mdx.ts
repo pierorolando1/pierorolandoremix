@@ -1,5 +1,4 @@
 import fs from 'fs'
-import fsa from '../routes/blog/fs.server'
 import path from 'path'
 import matter from 'gray-matter'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -7,12 +6,18 @@ import { serialize } from 'next-mdx-remote/serialize'
 import mdxPrism from 'mdx-prism'
 import { log } from '~/utils'
 
-import axios from 'axios'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from './firebase.config'
 
-const root = process.cwd()
 
 export const getFileBySlug = async (slug: string) => {
 
+  const querySnapshot = await getDocs(collection(db, 'posts_remix'))
+  const posts = querySnapshot.docs.map(doc => doc.data())
+
+  log(posts)
+
+  //const file = path.join(root, 'content', slug + '.mdx')
   const file = path.resolve(__dirname, "../../public/posts/", `${slug}.mdx`)
   const mdxSource = fs.readFileSync(file, "utf8");
 
@@ -22,7 +27,7 @@ export const getFileBySlug = async (slug: string) => {
 
   const source = await serialize(content, {
     mdxOptions: {
-      remarkPlugins: [require("remark-code-titles")],
+      remarkPlugins: [require("remark-code-titles"), require("mdx-mermaid")],
       rehypePlugins: [mdxPrism],
     },
   });
@@ -32,6 +37,25 @@ export const getFileBySlug = async (slug: string) => {
     lastModified,
     frontmatter: {
       slug: slug || null,
+      ...data,
+    },
+  };
+};
+
+export const getSourceFromSource = async (s: string) => {
+
+  const { data, content } = await matter(s)
+
+  const source = await serialize(content, {
+    mdxOptions: {
+      remarkPlugins: [require("remark-code-titles"), require("mdx-mermaid")],
+      rehypePlugins: [mdxPrism],
+    },
+  });
+
+  return {
+    source,
+    frontmatter: {
       ...data,
     },
   };

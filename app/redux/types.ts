@@ -5,4 +5,6 @@ export const types = {
 
   closeModal: "[modal] closeModal",
   openModal: "[modal] openModal",
+
+  changeContent: "[blog] changeContent",
 }

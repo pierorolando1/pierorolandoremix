@@ -508,6 +508,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 1rem;
 }
 
+.m-auto {
+  margin: auto;
+}
+
+.mx-10 {
+  margin-left: 2.5rem;
+  margin-right: 2.5rem;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -524,6 +533,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .mr-4 {
   margin-right: 1rem;
+}
+
+.mr-5 {
+  margin-right: 1.25rem;
 }
 
 .mr-1 {
@@ -546,12 +559,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 1.5rem;
 }
 
-.h-64 {
-  height: 16rem;
+.h-screen {
+  height: 100vh;
+}
+
+.h-\[20vh\] {
+  height: 20vh;
 }
 
 .h-full {
   height: 100%;
+}
+
+.h-64 {
+  height: 16rem;
 }
 
 .h-5 {
@@ -568,10 +589,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .h-20 {
   height: 5rem;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .min-h-screen {
@@ -608,6 +625,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .max-w-4xl {
   max-width: 56rem;
+}
+
+.max-w-xl {
+  max-width: 36rem;
 }
 
 .transform {
@@ -658,6 +679,15 @@ Ensure the default browser behavior of the `hidden` attribute.
   border-radius: 9999px;
 }
 
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.bg-red-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+}
+
 .bg-black {
   --tw-bg-opacity: 1;
   background-color: rgb(0 0 0 / var(--tw-bg-opacity));
@@ -669,6 +699,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .bg-black\/20 {
   background-color: rgb(0 0 0 / 0.2);
+}
+
+.bg-white\/10 {
+  background-color: rgb(255 255 255 / 0.1);
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .px-7 {
@@ -709,6 +747,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .px-3 {
   padding-left: 0.75rem;
   padding-right: 0.75rem;
+}
+
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .pb-0 {
