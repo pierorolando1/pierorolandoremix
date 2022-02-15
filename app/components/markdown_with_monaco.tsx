@@ -52,7 +52,7 @@ export default ({ initialValue }: { initialValue: string }) => {
       />
       {
         totalLoading &&
-        <ReactMarkdown className="w-full" children={deleteMetaLines(adminState.content)} />
+        <ReactMarkdown className="h-[80vh] overflow-auto w-full" children={deleteMetaLines(adminState.content)} />
       }
       {/*<Button>Preview</Button>*/}
     </div>

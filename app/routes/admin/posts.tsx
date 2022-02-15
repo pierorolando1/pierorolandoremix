@@ -43,7 +43,7 @@ const CardPost = ({ post }: { post: Post }) => {
         <h2>{post.title}</h2>
         <p>{post.description}</p>
       </div>
-      <Link to={"/admin/posts/" + post.id}>
+      <Link to={"/admin/edit/" + post.id}>
         <Button flat auto rounded css={{ color: '#94f9f0', bg: '#94f9f026' }}>
           <Text css={{ color: 'inherit' }} size={12} weight="bold" transform="uppercase">
             Edit
