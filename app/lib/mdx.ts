@@ -12,7 +12,7 @@ export const getFileBySlug = async (slug: string) => {
   const docRef = doc(db, "posts_remix", slug);
   const docSnap = await getDoc(docRef);
 
-  const { data, content } = await matter(docSnap.data()!.content)
+  const { data, content } = await matter(docSnap.data()?.content ?? "")
 
   const source = await serialize(content, {
     mdxOptions: {

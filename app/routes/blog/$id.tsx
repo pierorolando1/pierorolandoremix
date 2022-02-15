@@ -18,6 +18,7 @@ export default () => {
   const dispatch = useDispatch()
 
   const handleChangeToPost = () => {
+
     log(frontmatter)
     dispatch(changeTitle(frontmatter.meta.title))
     dispatch(setBackButton())
