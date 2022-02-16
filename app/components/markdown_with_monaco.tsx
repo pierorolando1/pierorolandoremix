@@ -21,11 +21,11 @@ export default ({ initialValue }: { initialValue: string }) => {
     base: 'vs-dark',
     inherit: true,
     rules: [],
-
+    wordWrap: 'on',
     colors: {
       'editor.background': '#000000',
     },
-  });
+  })
 
   return (
     <div className="flex w-full">
@@ -48,6 +48,7 @@ export default ({ initialValue }: { initialValue: string }) => {
             enabled: false
           },
           scrollBeyondLastLine: false,
+          wordWrap: 'on',
         }}
       />
       {

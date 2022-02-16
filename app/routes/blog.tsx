@@ -1,10 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Outlet } from "remix";
+import { Link, MetaFunction, Outlet } from "remix";
 import Truncate from "react-truncate";
 import { changeTitle, setBackButton, unSetBackButton } from "../redux/blog.actions";
 import { Input, Modal, Spacer } from "@nextui-org/react";
 import { closeModal, openModal } from "~/redux/modal.actions";
+
+export const meta: MetaFunction = () => ({
+  title: "Blog",
+  description: "Piero Rolando's blog",
+  keywords: "Blog, Computer Science, Programming, Programming Languages, Typescript, Next.js, React, Redux, TypeScript, NextUI, Piero Rolando"
+})
 
 export default function Blog() {
 

@@ -13,7 +13,7 @@ export default () => {
     base: 'vs-dark',
     inherit: true,
     rules: [],
-
+    wordWrap: 'on',
     colors: {
       'editor.background': '#000000',
     },
