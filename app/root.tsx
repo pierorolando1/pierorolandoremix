@@ -29,8 +29,8 @@ export function links() {
 }
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
-};
+  return { title: "Piero Rolando", description: "Personal website and blog of Piero Rolando" }
+}
 
 export default function App() {
 
