@@ -1,7 +1,7 @@
 import { MDXRemote } from "next-mdx-remote";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useLoaderData } from "remix";
+import { MetaFunction, useLoaderData } from "remix";
 import { getFileBySlug } from "~/lib/mdx";
 import { changeTitle, setBackButton } from "~/redux/blog.actions";
 import { log } from "~/utils";
@@ -12,6 +12,16 @@ export const loader = async ({ params }: any) => {
 
   const { source, frontmatter } = await getFileBySlug(params.id);
   return { source, frontmatter };
+}
+
+export const meta: MetaFunction = ({ data }) => {
+
+  const metaData = data.frontmatter.meta
+
+  return {
+    title: metaData.title,
+    description: metaData.description
+  };
 }
 
 export default () => {
