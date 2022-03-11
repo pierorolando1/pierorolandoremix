@@ -51,7 +51,7 @@ export default () => {
 
   return (
     <PublicPage>
-      <section className='h-screen flex items-center justify-center'>
+      <section className='flex items-center justify-center h-screen'>
         <Modal
           open={modal.open}
           title={modal.title}
@@ -63,7 +63,7 @@ export default () => {
         >
           <p>{modal.message}</p>
         </Modal>
-        <form onSubmit={handleSubmit} className="bg-white/10 max-w-xl m-auto rounded-lg p-10 py-20 w-full">
+        <form onSubmit={handleSubmit} className="w-full max-w-xl p-10 py-20 m-auto rounded-lg bg-white/10">
           <Input
             {...bindings}
             clearable
