@@ -1,26 +1,22 @@
-// import { useDispatch } from "react-redux"
-// import { changeTitle, setBackButton } from "~/redux/blog.actions"
+import moment from "moment"
 import { Link } from "remix"
+import { Post } from "~/interfaces/post"
+import { diffTime } from "~/utils"
 
 interface CardItemProps {
-  title: string,
-  slug: string,
-  description: string
+  post: Post,
 }
 
 export const CardItem: React.FC<CardItemProps> = ({
-  slug,
-  title,
-  description
+  post
 }) => {
-
   return (
     <article className="hover:bg-white/5 px-7 xl:px-0 hover:px-7 py-7 rounded transition-all">
-      <span className="text-white/40">1 hour ago</span>
+      <span className="text-white/40">{diffTime(moment(post.createdAt.seconds * 1000).toDate())}</span>
       <Link
         //onClick={handleChangeToPost}
-        to={slug} className="text-blue-50 hover:text-blue-600 transition-all"><h3 className="py-3 pb-0">{title}</h3></Link>
-      <p className="text-white/70 pb-1">{description}</p>
+        to={post.id} className="text-blue-50 hover:text-blue-600 transition-all"><h3 className="py-3 pb-0">{post.title}</h3></Link>
+      <p className="text-white/70 pb-1">{post.description}</p>
       <div className="flex justify-between">
         <div className="flex text-white/70">
           <svg viewBox="0 0 21 21" className="transition-all cursor-pointer hover:fill-accent h-6 w-6 hover:text-accent hover:opacity-80 mr-3" xmlns="http://www.w3.org/2000/svg"><path d="m7.24264069 2.24264069c.5-2.5 4.34314571-2.65685425 6.00000001-1 1.6034073 1.60340734 1.4999617 4.3343931 0 6l-6.00000001 6.00000001-6-6.00000001c-1.65685425-1.65685425-1.65685425-4.34314575 0-6 1.54996042-1.54996043 5.5-1.5 6 1z" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" transform="translate(3.257 4.257)" /></svg>

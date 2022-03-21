@@ -31,14 +31,12 @@ export default function Blog() {
           posts.map((post, i) => (
             <CardItem
               key={i}
-              description={post.description}
-              slug={post.id}
-              title={post.title}
+              post={post}
             //link={`/blog/${post}`}
             />
           ))
         }
-      </section >
+      </section>
     </>
   )
 }
