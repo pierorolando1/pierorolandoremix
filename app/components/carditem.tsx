@@ -11,7 +11,7 @@ export const CardItem: React.FC<CardItemProps> = ({
   post
 }) => {
   return (
-    <article className="hover:bg-white/5 px-7 xl:px-0 hover:px-7 py-7 rounded transition-all">
+    <article className="hover:bg-white/5 px-7 xl:px-0 hover:px-4 py-7 rounded transition-all">
       <span className="text-white/40">{diffTime(moment(post.createdAt.seconds * 1000).toDate())}</span>
       <Link
         //onClick={handleChangeToPost}
